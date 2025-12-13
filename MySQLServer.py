@@ -13,7 +13,7 @@ def create_tables():
 
         if connection.is_connected():
             cursor = connection.cursor()
-
+            cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
             # 2. ALL TABLE CREATION STATEMENTS AS STRINGS
             table_queries = [
 
