@@ -1,6 +1,4 @@
 import mysql.connector
-from mysql.connector import Error
-
 def create_tables():
     try:
         # 1. CONNECT DIRECTLY INTO THE DATABASE
@@ -16,7 +14,6 @@ def create_tables():
             cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
             # 2. ALL TABLE CREATION STATEMENTS AS STRINGS
             table_queries = [
-
                 # AUTHORS TABLE
                 """
                 CREATE TABLE IF NOT EXISTS Authors (
@@ -77,8 +74,8 @@ def create_tables():
             connection.commit()
             print("All tables created successfully!")
 
-    except Error as e:
-        print("Error while creating tables:", e)
+    except mysql.connector.Error as err:
+        print("Error while creating tables:", err)
 
     finally:
         if 'connection' in locals() and connection.is_connected():
